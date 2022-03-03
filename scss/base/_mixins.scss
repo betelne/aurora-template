@@ -1,0 +1,57 @@
+// Fullwidth
+@mixin fullwidth {
+  margin-left: - $container-padding-x;
+  margin-right: - $container-padding-x;
+  @each $breakpoint, $container in $container-max-widths {
+    @include media-breakpoint-up($breakpoint) {
+      margin-left: calc((-100vw + #{$container} - (2 * #{$container-padding-x})) / 2);
+      margin-right: calc((-100vw + #{$container} - (2 * #{$container-padding-x})) / 2);
+    }
+  }
+}
+
+// Fullwidth s paddingem jaky ma container
+@mixin fullwidth-padding {
+  @include fullwidth;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+  @each $breakpoint, $container in $container-max-widths {
+    @include media-breakpoint-up($breakpoint) {
+      padding-left: calc((100vw - #{$container} + (2 * #{$container-padding-x})) / 2);
+      padding-right: calc((100vw - #{$container} + (2 * #{$container-padding-x})) / 2);
+    }
+  }
+}
+
+// Automaticka barva pisma podle toho, co ma vetsi kontrast
+@mixin auto-color($color) {
+  background-color: $color;
+  color: text-color($color);
+}
+
+// Filtr na zmenu barvy (z cerne)
+@mixin recolor($color: #000, $opacity: 1) {
+  $r: red($color) / 255;
+  $g: green($color) / 255;
+  $b: blue($color) / 255;
+  $a: $opacity;
+
+  // grayscale fallback if SVG from data url is not supported
+  $lightness: lightness($color);
+  filter: saturate(0%) brightness(0%) invert($lightness) opacity($opacity);
+
+  // color filter
+  $svg-filter-id: "recolor";
+  filter: url('data:image/svg+xml;utf8,\
+  <svg xmlns="http://www.w3.org/2000/svg">\
+    <filter id="#{$svg-filter-id}" color-interpolation-filters="sRGB">\
+      <feColorMatrix type="matrix" values="\
+        0 0 0 0 #{$r}\
+        0 0 0 0 #{$g}\
+        0 0 0 0 #{$b}\
+        0 0 0 #{$a} 0\
+      "/>\
+    </filter>\
+  </svg>\
+  ##{$svg-filter-id}');
+}

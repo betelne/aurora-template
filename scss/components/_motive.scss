@@ -1,0 +1,163 @@
+.motive { // .fullscreen | .parallax
+  position: relative;
+  width: 100vw;
+  height: 35rem;
+  max-height: 100vh;
+  transform-style: preserve-3d;
+  // &::before {
+  //   position: absolute;
+  //   content: '';
+  //   left: 0;
+  //   top: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: transparent;
+  //   backdrop-filter: blur(10px);
+  // }
+}
+
+// .motive:not(.fullscreen) {
+//   max-height: 60%;
+// }
+
+/* Vlastni motiv */
+.custom-motive {
+  height: auto;
+}
+
+.motive > .section-carousel {
+  padding: 0;
+}
+
+/* Fullscreen nastaveni pro vlastni motiv - carousel - nepouzivat */
+.motive:not(.fullscreen) > .section-carousel .carousel {
+  max-height: 38rem;
+}
+
+.motive:not(.fullscreen) > .section-carousel .carousel-item img {
+  max-height: 38rem;
+  object-fit: cover;
+}
+
+.motive.fullscreen > .section-carousel {
+  height: 100%;
+  > .row {
+    height: 100%;
+    .carousel {
+      height: 100%;
+      .carousel-inner {
+        height: 100%;
+        .carousel-item {
+          height: 100%;
+          img {
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Parallax
+  ====================================================================== */
+
+#page-wrapper { // Parallax container
+  height: 100vh;
+  perspective: 1px;
+  perspective-origin: center top;
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.motive__background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $body-bg;
+  // background: url("../img/motiv/pexels-pixabay-258112.jpg") no-repeat center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: transform-origin .2s, opacity .2s .2s;
+  .motive.parallax & {
+    transform: translateZ(-1px) scale(2);
+    transform-origin: center top;
+    // transition: .2s;
+    opacity: 0; // opacity 1 in js
+  }
+}
+
+// .motive.parallax .splide {
+//   @extend .motive__background;
+//   transform: translateZ(-1px) scale(2);
+//   transform-origin: center top;
+// }
+
+#main {
+  position: relative;
+  transform: translateZ(0);
+  background-color: $body-bg;
+  z-index: 2;
+}
+
+
+/* Motto
+  ====================================================================== */
+
+.motive__motto {
+  position: relative;
+  color: $white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  .motive.parallax & {
+    transform: translateZ(-.9px) scale(1.9);
+    transform-origin: center -120px;
+    opacity: 0; // opacity 1 in js
+    transition: opacity .2s .2s;
+  }
+}
+
+.motive__motto--left {
+  @include media-breakpoint-up(sm) {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+.motive__motto--right {
+  @include media-breakpoint-up(sm) {
+    justify-content: flex-end;
+    text-align: right;
+  }
+}
+
+.motto__title {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: .25em;
+}
+
+.motto__text {
+  font-size: 1.5rem
+}
+
+.motive__motto {
+  @extend .container;
+}
+
+.motto__button-link {
+  @extend .btn;
+  @extend .btn-primary;
+  margin-top: 2rem;
+}

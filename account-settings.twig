@@ -1,0 +1,115 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container container--cart">
+        <section class="section section--header">
+            <h1>Úprava uživatelského účtu</h1>
+        </section>
+
+        {# <ul class="nav nav-tabs" style="max-width: 38em; margin-left: auto; margin-right: auto; margin-bottom: 2rem;">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Kontaktní údaje</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Fakturační adresa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Změna hesla</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Zrušení účtu</a>
+            </li>
+        </ul> #}
+
+        <fieldset class="account-form__fieldset">
+            <label class="account-form__title"><a class="account-form__title-link active" href="#">Kontaktní údaje <i class="las la-angle-down account-form__caret"></i></a></label>
+            <div class="account-form__items-wrapper">
+                <div class="account-form__item">
+                    <label class="account-form__label" for="email">E-mail *</label>
+                    <input class="account-form__input" id="email" name="email" type="email" required>
+                </div>
+                <div class="account-form__item">
+                    <label class="account-form__label" for="phone">Telefon *</label>
+                    <input class="account-form__input" id="phone" name="phone" type="text" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="account-form__fieldset">
+            <label class="account-form__title"><a class="account-form__title-link" href="#">Fakturační adresa <i class="las la-angle-down account-form__caret"></i></a></label>
+            <div class="account-form__items-wrapper" style="display: none;">
+                <div class="account-form__item">
+                    <label class="account-form__label" for="delivery-name">Jméno / společnost</label>
+                    <input class="account-form__input" id="delivery-name" name="name" type="text">
+                </div>
+                <div class="account-form__item">
+                    <label class="account-form__label" for="delivery-address">Ulice a č.p.</label>
+                    <input class="account-form__input" id="delivery-address" name="street" type="text">
+                </div>
+                <div class="account-form__item-group">
+                    <div class="account-form__item account-form__item--city">
+                        <label class="account-form__label" for="delivery-city">Město</label>
+                        <input class="account-form__input" id="delivery-city" name="city" type="text">
+                    </div>
+                    <div class="account-form__item account-form__item--zip">
+                        <label class="account-form__label" for="delivery-zip">PSČ</label>
+                        <input class="account-form__input" id="delivery-zip" name="zip" type="text">
+                    </div>
+                </div>
+                <div class="account-form__item">
+                    <label class="account-form__label" for="delivery-country">Země</label>
+                    {# <input class="account-form__input" id="delivery-country" name="country" type="text"> #}
+                    <select class="account-form__select">
+                        <option selected>Czech Republic</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="account-form__item-group">
+                    <div class="account-form__item">
+                        <label class="account-form__label" for="ic">IČ</label>
+                        <input class="account-form__input" id="ic" name="ic" type="text">
+                    </div>
+                    <div class="account-form__item">
+                        <label class="account-form__label" for="dic">DIČ</label>
+                        <input class="account-form__input" id="dic" name="dic" type="text">
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="account-form__fieldset">
+            <label class="account-form__title"><a class="account-form__title-link" href="#">Změna hesla <i class="las la-angle-down account-form__caret"></i></a></label>
+            <div class="account-form__items-wrapper" style="display: none;">
+                <div class="account-form__item">
+                    <label class="account-form__label" for="old-password">Původní heslo</label>
+                    <input class="account-form__input" id="old-password" name="old-password" autocomplete="off" type="password" required>
+                </div>
+                <div class="account-form__item">
+                    <label class="account-form__label" for="new-password" >Nové heslo</label>
+                    <input class="account-form__input" id="new-password" name="new-password" autocomplete="off" type="password" required>
+                </div>
+                <div class="account-form__item">
+                    <label class="account-form__label" for="new-password-check" >Nové heslo (kontrola)</label>
+                    <input class="account-form__input" id="new-password-check" name="new-password-check" autocomplete="off" type="password" required>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="account-form__fieldset">
+            <label class="account-form__title"><a class="account-form__title-link" href="#">Zrušení účtu <i class="las la-angle-down account-form__caret"></i></a></label>
+            <div class="account-form__items-wrapper" style="display: none;">
+                <div class="account-form__checkbox form-check">
+                    <input class="account-form__checkbox-input form-check-input" type="checkbox" value="" id="formCheckbox">
+                    <label class="account-form__checkbox-label" for="formCheckbox">
+                        Souhlasím se zrušením tohoto účtu a&nbsp;jsem si vědom všech následků s&nbsp;tím spojených
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <button class="account-button" id="account-form-submit" type="submit">Uložit</button>
+
+    </div>
+{% endblock %}

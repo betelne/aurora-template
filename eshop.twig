@@ -1,0 +1,168 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container container--eshop">
+
+        <div class="eshop-header">
+            <h1>E-shop</h1>
+        </div>
+
+        <div class="eshop-menu">
+            <div class="eshop-menu__header">
+                <h3>Kategorie</h3>
+                <span class="eshop-menu__header-caret las la-angle-down"></span>
+            </div>
+            <ul class="eshop-menu__list eshop-menu__list--vertical"> {# TO DO modifiers classes #}
+
+                <li class="eshop-menu__item">
+                    <a class="eshop-menu__link" href="#">
+                        <span class="eshop-menu__title">Digitální zrcadlovky</span>
+                        <span class="eshop-menu__count">28</span>
+                    </a>
+                </li>
+
+                <li class="eshop-menu__item">
+                    <a class="eshop-menu__link" href="#">
+                        <span class="eshop-menu__title">Bezzrcadlovky</span>
+                        <span class="eshop-menu__count">7</span>
+                    </a>
+                </li>
+
+                <li class="eshop-menu__item">
+                    <a class="eshop-menu__link" href="#">
+                        <span class="eshop-menu__title">Objektivy</span>
+                        <span class="eshop-menu__count">17</span>
+                    </a>
+
+                    <ul class="eshop-menu__list level2 expanded">
+                        <li class="eshop-menu__item">
+                            <a href="#" class="eshop-menu__link">
+                                <span class="eshop-menu__title">Krajina</span>
+                                <span class="eshop-menu__count">11</span>
+                            </a>
+                        </li>
+                        <li class="eshop-menu__item active">
+                            <a href="#" class="eshop-menu__link">
+                                <span class="eshop-menu__title">Portrét</span>
+                                <span class="eshop-menu__count">14</span>
+                            </a>
+                        </li>
+                        <li class="eshop-menu__item">
+                            <a href="#" class="eshop-menu__link">
+                                <span class="eshop-menu__title">Sport</span>
+                                <span class="eshop-menu__count">9</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="eshop-menu__item">
+                    <a class="eshop-menu__link" href="#">
+                        <span class="eshop-menu__title">Studiová technika</span>
+                        <span class="eshop-menu__count">3</span>
+                    </a>
+                </li>
+
+                <li class="eshop-menu__item">
+                    <a class="eshop-menu__link" href="#">
+                        <span class="eshop-menu__title">Příslušenství</span>
+                        <span class="eshop-menu__count">127</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        {# Filtry a vyhledavani #}
+        {# <div class="eshop-filters">
+            <form class="eshop-filters__form" action="">
+                <div class="eshop-filters__search">
+                    <label class="form-label" for="tags">Vyhledávání:</label>
+                    <input class="form-control" type="text" name="text" id="tags" value="" size="10" maxlength="64" autocomplete="off">
+                </div>
+                <div class="eshop-filters__order">
+                    <label class="form-label" for="order">Řazení:</label>
+                    <select class="form-select" name="order" id="order" aria-label="Řazení produktů">
+                        <option value="0">[vybrat]</option>
+                        <option value="1">Od nejlevnějšího</option>
+                        <option value="2">Od nejdražšího</option>
+                        <option value="3">Dle názvu</option>
+                        <option value="5">Dle kódu</option>
+                    </select>
+                </div>
+                <div class="eshop-filters__check form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="in_store">
+                    <label class="form-check-label" for="in_store">Skladem</label>
+                </div>
+                <div class="eshop-filters__check form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="is_popular">
+                    <label class="form-check-label" for="is_popular">Oblíbené</label>
+                </div>
+                <div class="eshop-filters__check form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="has_discount">
+                    <label class="form-check-label" for="has_discount">Akční cena</label>
+                </div>
+                <button class="eshop-filters__submit btn btn-primary" type="submit">Hledat</button>
+            </form>
+        </div> #}
+
+        {# Filtry a vyhledavani - UPDATE, button hledat vedle vyhledavaciho pole #}
+        <div class="eshop-filters">
+            <form class="eshop-filters__form" action="">
+                <div class="eshop-filters__search">
+                    <label class="form-label" for="tags">Vyhledávání:</label>
+                    <input class="form-control" type="text" name="text" id="tags" value="" size="10" maxlength="64" autocomplete="off">
+                </div>
+
+                <button class="eshop-filters__submit" type="submit">Hledat</button>
+
+                <div class="eshop-filters__order">
+                    <label class="form-label" for="order">Řazení:</label>
+                    <select class="form-select" name="order" id="order" aria-label="Řazení produktů">
+                        <option value="0">[vybrat]</option>
+                        <option value="1">Od nejlevnějšího</option>
+                        <option value="2">Od nejdražšího</option>
+                        <option value="3">Dle názvu</option>
+                        <option value="5">Dle kódu</option>
+                    </select>
+                </div>
+                <div class="eshop-filters__check form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="in_store">
+                    <label class="form-check-label" for="in_store">Skladem</label>
+                </div>
+                <div class="eshop-filters__check form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="is_popular">
+                    <label class="form-check-label" for="is_popular">Oblíbené</label>
+                </div>
+                <div class="eshop-filters__check form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="has_discount">
+                    <label class="form-check-label" for="has_discount">Akční cena</label>
+                </div>
+                
+            </form>
+        </div>
+
+        {# Produkty #}
+        <div class="eshop-products">
+            {# {{ content }} #}
+            {% include 'partials/product-list.twig' %}
+            <nav class="pagination">
+                <ul class="pagination__list">
+                    <li class="pagination__page-item">
+                        <a class="pagination__page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true"><i class="las la-angle-left pagination__arrow pagination__arrow--left"></i></span>
+                        </a>
+                    </li>
+                    <li class="pagination__page-item active"><a class="pagination__page-link" href="#">1</a></li>
+                    <li class="pagination__page-item"><a class="pagination__page-link" href="#">2</a></li>
+                    <li class="pagination__page-item"><a class="pagination__page-link" href="#">3</a></li>
+                    <li class="pagination__page-item">
+                        <a class="pagination__page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true"><i class="las la-angle-right pagination__arrow pagination__arrow--right"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}

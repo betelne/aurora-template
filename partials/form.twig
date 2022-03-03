@@ -1,0 +1,21 @@
+<section class="section section--form section--form-{{ meta.form_placement }} section--bg" style="
+    {% if meta.form_bg_color %}background-color: {{ meta.form_bg_color }}; {% endif %}
+    {% if meta.form_bg_image %} background: url({{ meta.form_bg_image }}) no-repeat center; background-size: cover; {% endif %}">
+
+    <div class="form-row form-row--{{ meta.form_alignment }}">
+        <div class="form-row__col-left">
+            {% if meta.form_placement == 'left' %}
+                {% include 'partials/form-contact.twig' %}
+            {% else %}
+                {% include 'partials/form-text.twig' %}
+            {% endif %}
+        </div>
+        <div class="form-row__col-right">
+            {% if meta.form_placement == 'left' %}
+                {% include 'partials/form-text.twig' %}
+            {% else %}
+                {% include 'partials/form-contact.twig' %}
+            {% endif %}
+        </div>
+    </div>
+</section>

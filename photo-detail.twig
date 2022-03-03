@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container container--photo">
+        <section class="section section--header">
+            <h1>Název fotky</h1>
+        </section>
+
+        <div class="perex">
+            {# <div class="perex__image-wrapper">
+                <img class="perex__image" src="https://i.picsum.photos/id/473/500/500.jpg?hmac=P__oi_XX4pWMJPlt1IJOqvsPEG7FT4-xQ6Msu55c2io" alt="">
+            </div> #}
+            <div class="perex__text-wrapper">
+                <p class="perex__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores nesciunt voluptatibus, doloremque et cumque placeat tenetur nisi dignissimos excepturi nobis odit architecto velit. Ratione a itaque sunt, natus dolor sint!</p>
+            </div>
+        </div>
+
+        <div class="photo__buttons photo__buttons--top">
+            <a class="photo__button photo__button--left btn btn-outline-primary" href="#"><i class="las la-arrow-left"></i> <span>Předchozí</span></a>
+            <a class="photo__button photo__button--back" href="#">Zpět na přehled</a>
+            <a class="photo__button photo__button--right btn btn-outline-primary" href="#"><span>Následující</span> <i class="las la-arrow-right"></i></a>
+        </div>
+
+        <a class="photo__img-link" href="#">
+            <img class="photo__img" src="{{ assets_url }}/rishi-ragunathan-fs6NPHYMN7o-unsplash.jpg" alt="">
+        </a>
+
+        <div class="photo__buttons photo__buttons--bottom">
+            <a class="photo__button photo__button--left btn btn-outline-primary" href="#"><i class="las la-arrow-left"></i> <span>Předchozí</span></a>
+            <a class="photo__button photo__button--back" href="#">Zpět na přehled</a>
+            <a class="photo__button photo__button--right btn btn-outline-primary" href="#"><span>Následující</span> <i class="las la-arrow-right"></i></a>
+        </div>
+
+    </div>
+
+{% endblock %}

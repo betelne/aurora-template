@@ -1,0 +1,5 @@
+.btn-secondary,
+.btn-default {
+  @extend .btn-outline-primary;
+  background-color: transparent;
+}

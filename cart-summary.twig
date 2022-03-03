@@ -1,0 +1,243 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container container--cart">
+        <section class="section section--header">
+            <h1>Souhrn objednávky</h1>
+        </section>
+
+        <table class="cart-table cart-table--summary" id="cart">
+            <thead>
+                <tr>
+                    <th class="cart-table__th cart-table__th--product">Produkt</th>
+                    <th class="cart-table__th cart-table__th--qty">Počet</th>
+                    <th class="cart-table__th cart-table__th--price-no-vat">Cena bez DPH</th>
+                    <th class="cart-table__th cart-table__th--price-vat">Cena s DPH</th>
+                    <th class="cart-table__th"></th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr class="cart-table__tr cart-table__tr--product">
+                    <td class="cart-table__td cart-table__td--product">
+                        <div class="cart-table__product">
+                            <a class="cart-table__img-link" href="">
+                                <img class="cart-table__img" src="{{ assets_url }}/products/fotak1.jpg" alt="">
+                            </a>
+                            <div class="cart-table__description cart-table__description">
+                                <a class="cart-table__link" href="">Nikon D7000 + 18-140mm VR</a>
+                                <div class="cart-table__unit-price-wrapper">
+                                    <span class="cart-table__unit-price">25 490 Kč / ks</span>
+                                    {# <span class="cart-table__discount"></span> #}
+                                </div>
+                            </div>
+                        </div>
+                        {# <button class="cart-table__item-cancel cart-table__item-cancel--mobile" type="button">
+                            <i class="cart-table__item-cancel-icon las la-times"></i>
+                        </button> #}
+                    </td>
+                    <td class="cart-table__td cart-table__td--qty">
+                        <span class="cart-table__mobile-label">Počet</span>
+                        <span class="cart-table__qty">1</span>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-no-vat">
+                        <span class="cart-table__mobile-label">Cena bez DPH</span>
+                        <div class="cart-table__price-no-vat-wrapper">
+                            {# <div class="cart-table__price-no-vat cart-table__price-no-vat--discount"></div> #}
+                            <div class="cart-table__price-no-vat">21 066 Kč</div>
+                        </div>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-vat">
+                        <span class="cart-table__mobile-label">Cena s DPH</span>
+                        <div class="cart-table__price-vat-wrapper">
+                            {# <div class="cart-table__price-vat cart-table__price-vat--discount"></div> #}
+                            <div class="cart-table__price-vat">25 490 Kč</div>
+                        </div>
+                    </td>
+                    <td class="cart-table__td cart-table__td--cancel">
+                        {# <button class="cart-table__item-cancel" type="button">
+                            <i class="cart-table__item-cancel-icon las la-times"></i>
+                        </button> #}
+                    </td>
+                </tr>
+                <tr class="cart-table__tr cart-table__tr--product">
+                    <td class="cart-table__td cart-table__td--product">
+                        <div class="cart-table__product">
+                            <a class="cart-table__img-link" href="">
+                                <img class="cart-table__img" src="{{ assets_url }}/products/fotak2.jpg" alt="">
+                            </a>
+                            <div class="cart-table__description cart-table__description">
+                                <a class="cart-table__link" href="">Fujifilm X-T10 + 18-55 mm</a>
+                                <div class="cart-table__unit-price-wrapper">
+                                    <span class="cart-table__unit-price">18 290 Kč / ks</span>
+                                    <span class="cart-table__discount">sleva 10 %</span>
+                                </div>
+                            </div>
+                        </div>
+                        {# <button class="cart-table__item-cancel cart-table__item-cancel--mobile" type="button">
+                            <i class="cart-table__item-cancel-icon las la-times"></i>
+                        </button> #}
+                    </td>
+                    <td class="cart-table__td cart-table__td--qty">
+                        <span class="cart-table__mobile-label">Počet</span>
+                        <span class="cart-table__qty">1</span>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-no-vat">
+                        <span class="cart-table__mobile-label">Cena bez DPH</span>
+                        <div class="cart-table__price-no-vat-wrapper">
+                            <div class="cart-table__price-no-vat cart-table__price-no-vat--discount">13 510 Kč</div>
+                            <div class="cart-table__price-no-vat">15 115 Kč</div>
+                        </div>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-vat">
+                        <span class="cart-table__mobile-label">Cena s DPH</span>
+                        <div class="cart-table__price-vat-wrapper">
+                            <div class="cart-table__price-vat cart-table__price-vat--discount">16 350 Kč</div>
+                            <div class="cart-table__price-vat">18 290 Kč</div>
+                        </div>
+                    </td>
+                    <td class="cart-table__td cart-table__td--cancel">
+                        {# <button class="cart-table__item-cancel" type="button">
+                            <i class="cart-table__item-cancel-icon las la-times"></i>
+                        </button> #}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="cart-table__divider-wrapper" colspan="5"><div class="cart-table__divider cart-table__divider--border"></div></td>
+                </tr>
+
+                <tr>
+                    <td class="cart-table__td cart-table__td--select" colspan="2">
+                        <div class="cart-table__delivery">
+                            <label class="cart-table__label" for="cart-delivery"><i class="cart-table__label-icon cart-table__label-icon--delivery las la-truck"></i>Doprava</label>
+                            <div class="cart-table__info cart-table__info--delivery">
+                                <div class="cart-table__delivery-option">Zásilkovna (výdejní místo)</div>
+                                <div class="cart-table__delivery-place">Praha 2, Rumunská 28, Antikvariát Vinohradská, v suterénu</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-no-vat">
+                        <span class="cart-table__mobile-label">Cena bez DPH</span>
+                        <span class="cart-table__price-no-vat">40 Kč</span>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-vat">
+                        <span class="cart-table__mobile-label">Cena s DPH</span>
+                        <span class="cart-table__price-vat">49 Kč</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cart-table__td cart-table__td--select" colspan="2">
+                        <div class="cart-table__payment">
+                            <label class="cart-table__label" for="cart-delivery"><i class="cart-table__label-icon cart-table__label-icon--payment las la-credit-card"></i>Platba</label>
+                            <div class="cart-table__info">
+                                <div class="cart-table__payment-option">Online platba (Comgate)</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-no-vat">
+                        <span class="cart-table__mobile-label">Cena bez DPH</span>
+                        <span class="cart-table__price-no-vat">17 Kč</span>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-vat">
+                        <span class="cart-table__mobile-label">Cena s DPH</span>
+                        <span class="cart-table__price-vat">20 Kč</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="cart-table__divider-wrapper" colspan="5"><div class="cart-table__divider"></div></td>
+                </tr>
+
+                <tr class="cart-table__tr-empty" style="display: none;">
+                    <td colspan="5">
+                        <div class="cart-table__empty" style="display: none;">
+                            <i class="cart-table__empty-icon las la-meh"></i>
+                            <div class="cart-table__empty-text">Nemáte žádné zboží v košíku.</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="cart-table__tr cart-table__tr--sum"> 
+                    <td class="cart-table__td cart-table__td--sum" colspan="2">
+                        <span class="cart-table__total-label">Cena celkem</span>
+                        <div class="cart-table__promo">
+                            <div class="promo-code">
+                                <div class="promo-code__code">Slevový kód: SLEVA10 (10 %)</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-no-vat">
+                        <span class="cart-table__mobile-label">Cena bez DPH</span>
+                        <span class="cart-table__price-no-vat">36 193 Kč</span>
+                    </td>
+                    <td class="cart-table__td cart-table__td--price-vat">
+                        <span class="cart-table__mobile-label">Cena s DPH</span>
+                        <span class="cart-table__price-vat">44 369 Kč</span>
+                    </td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="cart-form-wrapper">
+            <form class="cart-form">
+
+                <div class="cart-form__summary">
+                    <h2 class="cart-form__title">Fakturační adresa</h2>
+                    <div class="cart-form__summary-address">
+                        <div>Franta Pepa Jednička</div>
+                        <div>Klusáčkova 8</div>
+                        <div>642 12 Brno</div>
+                        <div>Czech Republic</div>
+                    </div>
+                    <div class="cart-form__summary-contact">
+                        <div>Tel.: +420 123 456 789</div>
+                        <div>E-mail: franta@pepa.com</div>
+                    </div>
+                </div>
+
+                <div class="cart-form__summary">
+                    <h2 class="cart-form__title">Dodací adresa</h2>
+                    <div class="cart-form__summary-address">
+                        <div>Franta Pepa Jednička</div>
+                        <div>Klusáčkova 8</div>
+                        <div>642 12 Brno</div>
+                        <div>Czech Republic</div>
+                    </div>
+                </div>
+
+                <div class="cart-form__check-wrapper">
+                    <div class="cart-form__check">
+                        <input class="cart-form__check-input" id="cart-check-terms" type="checkbox" value="" required>
+                        <label class="cart-form__check-label" for="cart-check-terms">
+                            Souhlasím s <a href="#">Obchodními podmínkami</a>
+                        </label>
+                    </div>
+
+                    <div class="cart-form__check">
+                        <input class="cart-form__check-input" id="cart-check-account" type="checkbox" value="" checked>
+                        <label class="cart-form__check-label" for="cart-check-account">
+                            Vytvořit ze zadaných údajů Zákaznický účet pro tento e-shop
+                        </label>
+                    </div>
+
+                    <div class="cart-form__check">
+                        <input class="cart-form__check-input" id="cart-check-privacy" type="checkbox" value="" checked>
+                        <label class="cart-form__check-label" for="cart-check-privacy">
+                            Souhlasím se zpracováním osobních údajů pro marketingové účely
+                        </label>
+                    </div>
+                </div>
+
+                <div class="cart-buttons">
+                    <button class="cart-button cart-button--back" id="cart-form-back" type="button">Zpět</button>
+                    <button class="cart-button cart-button--summary" id="cart-form-submit" type="submit">Objednat</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

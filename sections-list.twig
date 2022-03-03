@@ -1,0 +1,40 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="container">
+        <section class="section section--header">
+            <h1>Rubriky</h1>
+        </section>
+
+        <div class="row categories categories--root">
+            {% for page in pages("rubriky")|sort_by("time")|reverse if not page.hidden %}
+
+                <div class="category-wrapper">
+
+                    <article class="category">
+
+                        <a class="category__thumbnail" href="{{ page.url }}">
+                            <div class="category__img-wrapper">
+                                {% if page.meta.password %}
+                                    <i class="category__icon category__icon--password las la-lock"></i>
+                                {% elseif page.meta.image %}
+                                    <img class="category__img" src="{{ assets_url }}/{{ page.meta.image }}" alt="">
+                                {% else %}
+                                    <i class="category__icon category__icon--blank las la-folder-open"></i>
+                                {% endif %}
+                            </div>
+                        </a>
+
+                        <h3 class="category__title">
+                            <a class="category__title-link" href="{{ page.url }}">{{ page.title }}</a>
+                        </h3>
+
+                    </article>
+
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

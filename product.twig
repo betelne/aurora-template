@@ -1,0 +1,136 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container container--product">
+
+        <div class="product-page__row">
+
+            <div class="product-page__img-col">
+                <div class="product-page__img-wrapper">
+                    <a class="product-page__img-link" href="#">
+                        <img class="product-page__img" src="{{ assets_url }}/{{ meta.image }}" alt="">
+                    </a>
+                    {% if meta.favourite or meta.used %}
+                        <div class="product-page__labels">
+                            {% if meta.favourite %}
+                                <div class="product-page__label product-page__label--favourite">Populární</div>
+                            {% endif %}
+                            {% if meta.used %}
+                                <div class="product-page__label product-page__label--used">Použité</div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    {% if meta.discount %}
+                        <div class="product-page__discount">{{ meta.discount }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="product-page__info-col">
+                <h1 class="product-page__title">{{ meta.title }}</h1>
+                <p class="product-page__perex">{{ meta.perex }}</p>
+
+                {% if meta.variants > 1 %}
+                    <div class="product-page__variants">
+                        <label class="form-label" for="variants">Varianty</label>
+                        <select class="form-select" name="variants" id="variants" aria-label="Varianty produktu">
+                            <option value="0">Nikon D7000 + 18-140mm VR</option>
+                            <option value="1">Nikon D7000 + 18-105mm VR</option>
+                        </select>
+                    </div>
+                {% endif %}
+
+                {% set stock = meta.stock %}
+                {% if stock %}
+                    <div class="product-page__stock product-page__stock--{{ stock }}">
+                        {% if stock == "instock" %}
+                            {{ "Skladem" }}
+                        {% elseif stock == "coming" %}
+                            {{ "Na cestě" }}
+                        {% elseif stock == "atsupplier" %}
+                            {{ "U dodavatele" }}
+                        {% elseif stock == "bespoke" %}
+                            {{ "Na zakázku" }}
+                        {% elseif stock == "soldout" %}
+                            {{ "Vyprodáno" }}
+                        {% elseif stock == "unknown" %}
+                            {{ "Nedostupné" }}
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                <div class="product-page__code">Kód produktu: CODE995</div>
+
+
+
+                {# Cena produktu #}
+
+                <div class="product-page__price">
+
+                    {% if meta.discount %}
+                         <div class="product-page__price-wrap-old">
+                            <div class="product-page__price-name">Běžná cena</div>
+                            <div class="product-page__price-old">
+                                <div class="product-page__price-value">1 990 Kč</div>
+                                <div class="product-page__price-vat-info">s DPH</div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="product-page__price-wrap-current">
+                        {% if meta.discount %}
+                            <div class="product-page__price-name product-page__price-name--discount">Akční cena</div>
+                        {% endif %}
+ 
+                        <div class="product-page__price-current">
+                            <div class="product-page__price-value">1 790 Kč</div>
+                            <div class="product-page__price-vat-info">bez DPH</div>
+                        </div>
+
+                        <div class="product-page__price-current-accent">
+                            <div class="product-page__price-value">1 990 Kč</div>
+                            <div class="product-page__price-vat-info">s DPH</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                {# /Cena produktu #}
+
+
+
+                <button class="product-page__cart-button">
+                    <i class="las la-shopping-basket product-page__cart-button-icon"></i>
+                    <div class="product-page__cart-button-label">Do košíku</div>
+                </button>
+            </div>
+        </div>
+
+        <ul class="product-page__tab-list nav nav-tabs" id="product-tab-list" role="tablist">
+            <li class="product-page__tab-item nav-item" role="presentation">
+                <button class="product-page__tab-link nav-link active" id="tab-description" data-bs-toggle="tab" data-bs-target="#product-description" type="button" role="tab" aria-controls="product-description" aria-selected="true">Popis produktu</button>
+            </li>
+            <li class="product-page__tab-item nav-item" role="presentation">
+                <button class="product-page__tab-link nav-link" id="tab-images" data-bs-toggle="tab" data-bs-target="#product-images" type="button" role="tab" aria-controls="product-images" aria-selected="false">Obrázky</button>
+            </li>
+            <li class="product-page__tab-item nav-item" role="presentation">
+                <button class="product-page__tab-link nav-link" id="tab-comments" data-bs-toggle="tab" data-bs-target="#product-comments" type="button" role="tab" aria-controls="product-comments" aria-selected="false">Komentáře</button>
+            </li>
+            <li class="product-page__tab-item nav-item" role="presentation">
+                <button class="product-page__tab-link nav-link" id="tab-related" data-bs-toggle="tab" data-bs-target="#product-related" type="button" role="tab" aria-controls="product-related" aria-selected="false">Produkty v kategorii</button>
+            </li>
+        </ul>
+
+        <div class="product-page__tab-content tab-content" id="product-tab-content">
+            <div class="product-page__description tab-pane fade show active" id="product-description" role="tabpanel" aria-labelledby="tab-description">
+                {{ content }}
+            </div>
+            <div class="product-page__images tab-pane fade" id="product-images" role="tabpanel" aria-labelledby="tab-images">
+            </div>
+            <div class="product-page__comments tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="tab-comments">
+            </div>
+            <div class="product-page__related tab-pane fade" id="product-related" role="tabpanel" aria-labelledby="tab-related">
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

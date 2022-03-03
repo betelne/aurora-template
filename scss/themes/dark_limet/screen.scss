@@ -1,0 +1,11 @@
+// Variables
+@import '../../base/variables';
+
+// Theme color
+$primary: $theme-dark-limet;
+
+// Dark mode colors
+@import '../dark-mode';
+
+// Styles
+@import '../main';

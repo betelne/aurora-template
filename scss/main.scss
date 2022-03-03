@@ -1,0 +1,42 @@
+// Custom variables + overriding Bootstrap defaults
+@import 'base/variables';
+
+// Bootstrap v5.1.3
+@import '../vendor/bootstrap-5.1.3/bootstrap';
+
+// Base styles
+@import
+  'base/placeholders',
+  'base/functions',
+  'base/mixins',
+  'base/core',
+  'base/layout',
+  'base/typography';
+
+// Components
+@import
+  'components/header',
+  'components/navigation',
+  'components/motive',
+  'components/footer',
+
+  'components/buttons',
+  'components/forms',
+  'components/tables',
+  
+  'components/section',
+  'components/article',
+  'components/list',
+
+  'components/minicart',
+  'components/account',
+  'components/cart',
+  'components/eshop',
+  
+  'components/comments',
+  'components/gallery',
+  'components/slider',
+  
+  'components/sitemap',
+  'components/cookies',
+  'components/bootstrap';

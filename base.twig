@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="no-js" lang="cs">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{% if meta.title %}{{ meta.title }} | {% endif %}&nbsp;{{ site_title }}</title>
+    {% if meta.description %}
+        <meta name="description" content="{{ meta.description|striptags }}" />
+    {% endif %}
+    {% if meta.robots %}
+        <meta name="robots" content="{{ meta.robots }}" />
+    {% endif %}
+
+    {% if current_page %}
+        <link rel="canonical" href="{{ current_page.url }}" />
+    {% endif %}
+
+    {# Line Awesome #}
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    {# <link rel="stylesheet" href="{{ theme_url }}/vendor/line-awesome/css/line-awesome.min.css" type="text/css" /> #}
+    <link rel="stylesheet" href="{{ theme_url }}/css/clicky-menus.css" type="text/css" />
+    <link rel="stylesheet" href="{{ theme_url }}/vendor/splide/css/splide.min.css" type="text/css" />
+    <link rel="stylesheet" href="{{ theme_url }}/vendor/photoswipe/photoswipe.css" type="text/css" />
+    <link rel="stylesheet" href="{{ theme_url }}/vendor/photoswipe/default-skin/default-skin.css" type="text/css" />
+    <link rel="stylesheet" href="{{ theme_url }}/css/main.min.css" type="text/css" id="theme-link"/>
+    {# <link rel="stylesheet" href="{{ theme_url }}/scss/themes/light_blue/screen.css.php" type="text/css" id="theme-link"/> #}
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+
+    <script src="{{ theme_url }}/js/jquery-3.6.0.min.js"></script>
+    <script src="{{ theme_url }}/js/jquery.cookie.js"></script> {# TEMP #}
+    <script src="{{ theme_url }}/js/bootstrap.min.js"></script>
+
+    <script src="{{ theme_url }}/vendor/bootstrap-3.4.1/transition.js"></script>
+    <script src="{{ theme_url }}/vendor/bootstrap-3.4.1/carousel.js"></script>
+    <script src="{{ theme_url }}/vendor/bootstrap-3.4.1/tab.js"></script>
+
+    <script src="{{ theme_url }}/js/clicky-menus.js"></script>
+    <script src="{{ theme_url }}/vendor/splide/js/splide.min.js"></script>
+    <script src="{{ theme_url }}/vendor/photoswipe/photoswipe.min.js"></script>
+    <script src="{{ theme_url }}/vendor/photoswipe/photoswipe-ui-default.min.js"></script>
+    <script src="{{ theme_url }}/js/custom.js"></script>
+</head>
+<body {% if meta.body_class %} class="{{ meta.body_class }}"{% endif %}>
+
+{% include 'partials/cookies.twig' %}
+
+<div id="page-wrapper" class="page-wrapper">
+
+    
+
+    <div id="header" class="header" role="banner">
+
+        {# Contact #}
+        <div id="contactus" class="contactus">
+            <span class="contactus__phone">
+                <i class="las la-phone contactus__phone-icon"></i>
+                <a class="contactus__phone-link" href="tel:+420730800055">+420 730 800 055</a>
+            </span>
+            <span class="contactus__email">
+                <i class="las la-envelope contactus__email-icon"></i>
+                <a class="contactus__email-link" href="mailto:info@inpage.cz">info@inpage.cz</a>
+            </span>
+        </div>
+
+        {# Navbar #}
+        <nav id="navbar" class="navbar">
+            {# <div class="container-fluid"> #}
+
+                {# Logo #}
+                <div class="navbar__brand">
+                    {% if pages["_meta"].meta.logo %}
+                        <div class="navbar__brand-logo" id="logo" aria-hidden="true">
+                            <a class="navbar__brand-logo-link" href="{{ "index"|link }}">
+                                <img class="navbar__brand-logo-img" src="{{ pages["_meta"].meta.logo|url }}" alt="" />
+                            </a>
+                        </div>
+                    {% endif %}
+                    <div class="navbar__brand-title" id="title"{{ pages["_meta"].meta.tagline ? ' class="tagline"' }}>
+                        <a class="navbar__brand-title-link" class="navbar__brand-title-link" href="{{ "index"|link }}">
+                            {# {{ site_title }} #}
+                            {# {{ pages["_meta"].meta.tagline|markdown }} #}
+                            <img class="navbar__brand-logo-img" src="{{ theme_url }}/img/logo-dark.png" width="130" height="auto" alt="" />
+                        </a>
+                    </div>
+                </div>
+
+                {# Menu #}
+                <div id="nav-menu" class="navbar__menu" role="navigation" tabindex="-1">
+                        {% macro menu(items) %}
+                            <ul class="navbar__menu-list clicky-menu no-js">
+                                {% for name,item in items if not item.hidden %}
+                                    <li class="navbar__menu-item{% if item._childs %} navbar__menu-item--has-childs{% endif %}">
+                                    {% if item.url %}
+                                        <a class="navbar__menu-link" href="{{ item.url }}">{{ item.title }}{% if item._childs %}<i class="las la-angle-down navbar__menu-caret"></i>{% endif %}</a> {{ item.description }}
+                                    {% else %}
+                                        <span>{{ name }}</span>
+                                    {% endif %}
+                                    {% if item._childs %}
+                                        {% import _self as macros %}
+                                        {{ macros.menu(item._childs) }}
+                                    {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endmacro %}
+
+                        {% import _self as macros %}
+                        {{ macros.menu(nested_pages) }}
+
+                        {# {% for page in pages if not page.hidden %}
+                            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                        {% endfor %} #}
+                </div>
+
+                {# User account #}
+                <div class="navbar__account">
+                    <button id="account-toggle" class="navbar__account-button" aria-label="Uživatelský účet">
+                        <i class="las la-user navbar__account-icon"></i>
+                    </button>
+                    <div id="account" class="account-menu">
+                        {% include 'partials/account.twig' %}
+                        {# {% include 'partials/account-logged.twig' %} #}
+                    </div>
+                </div>
+
+                {# Basket #}
+                <div class="navbar__cart">
+                    <button id="minicart-toggle" class="navbar__cart-button" aria-label="Položky v košíku">
+                        <i class="las la-shopping-basket navbar__cart-icon"></i>
+                        <div class="navbar__cart-items">2</div>
+                    </button>
+                    <div class="navbar__cart-price">10 339 Kč</div>
+                    <div id="minicart" class="minicart">
+                        {% include 'partials/minicart.twig' %}
+                        {# {% include 'partials/minicart-empty.twig' %} #}
+                    </div>
+                </div>
+
+                {# Search #}
+                <button id="search-toggle" class="navbar__search-toggler" type="button" aria-controls="search-bar" aria-label="Hledání">
+                    <span class="sr-only">Hledání</span>
+                    <i class="las la-search navbar__search-toggler-icon"></i>
+                </button>
+                <div id="search-bar" class="navbar__search">
+                    <form class="navbar__search-form" action="">
+                        <button id="search-close" class="navbar__search-close" type="button" aria-label="Zavřít hledání">
+                            <i class="las la-times navbar__search-close-icon"></i>
+                        </button>
+                        <input class="navbar__search-input" type="text" placeholder="Hledat..." aria-label="Hledaný výraz">
+                        <button class="navbar__search-button" type="submit" aria-label="Hledat">
+                            <span class="sr-only">Hledat</span>
+                            <i class="las la-search navbar__search-icon"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <button id="nav-toggle" class="navbar__toggler" type="button" aria-controls="nav-menu" aria-label="Menu">
+                    <span class="sr-only">Menu</span>
+                    <div class="navbar__toggler-icon-bar"></div>
+                    <div class="navbar__toggler-icon-bar"></div>
+                    <div class="navbar__toggler-icon-bar"></div>
+                </button>
+                {# <a id="nav-toggle" title="Toggle Menu" role="button" aria-controls="nav" aria-expanded="false" tabindex="1">
+                    <span class="icon-menu" aria-hidden="true"></span>
+                    <span class="sr-only">Toggle Menu</span>
+                </a> #}
+
+            {# </div> #}
+        </nav>
+    </div>
+
+    {# Motiv #}
+    {% if meta.motive %}
+        <div id="motive" class="motive {% if meta.motive_parallax %} parallax{% endif %} {% if meta.motive_fullscreen %} fullscreen{% endif %}">
+            <div class="motive__background" style="background-image: url({{ assets_url }}/{{ meta.motive }});"></div>        
+            <div class="motive__motto motive__motto--{{ meta.motto_position }}">
+                <div class="motto">
+                    <div class="motto__title">{{ meta.motto_title }}</div>
+                    <div class="motto__text">{{ meta.motto_text }}</div>
+                    {% if meta.motto_button %}
+                        <div class="motto__button"><a class="motto__button-link" href="{{ meta.motto_button_link }}">{{ meta.motto_button_text }}</a></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {# <div class="motive motive--slider fullscreen" id="motive">
+            {% include 'partials/slider.twig' %}
+        </div> #}
+    {% endif %}
+
+    {# Breadcrumbs #}
+    <nav class="breadcrumb" aria-label="Breadcrumbs">
+        <ol class="breadcrumb__list">
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ base_url }}">{{ site_title }}</a></li>
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ base_url }}/?rubriky%2F">Rubriky</a></li>
+            <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ base_url }}/?rubriky%2Fblog">Blog</a></li>
+            <li class="breadcrumb__item"><span class="breadcrumb__current" aria-current="page">Lorem sit amet</span></li>
+        </ol>
+    </nav>
+
+    {# {% if current_page %}
+        <nav class="breadcrumb" aria-label="Breadcrumbs">
+            <ol class="breadcrumb__list">
+                <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ base_url }}">{{ site_title }}</a></li>
+                {% set pathComponents = current_page.id|split("/")|slice(0, -1) %}
+                {% for subPath in pathComponents %}
+                    {% set category = pathComponents|slice(loop.index0)|join("/") ~ "/index" %}
+                    <li class="breadcrumb__item"><span class="breadcrumb__current">{{ pages[category].title }}</span>
+                {% endfor %}
+            </ol>
+        </nav>
+    {% endif %} #}
+
+    <div id="main" class="main" role="main">
+        {% block content %}
+            {# {{ content }} #}
+        {% endblock %}
+    </div>
+
+    <div id="footer" class="footer section-contact">
+        <div class="container">
+            {# {% include 'partials/footer-default.twig' %} #}
+            {% include 'partials/section-contact.twig' %}
+            {# <div class="social">
+                {% for social in pages["_meta"].meta.social %}
+                    <a href="{{ social.url }}" title="{{ social.title }}" role="button">
+                        <span class="icon-{{ social.icon }}" aria-hidden="true"></span>
+                        <span class="sr-only">{{ social.title }}</span>
+                    </a>
+                {% endfor %}
+            </div>
+            <p>
+                &copy;&nbsp; {{ 'now' | date('Y') }} Název šablony.
+            </p> #}
+        </div>
+    </div>
+
+    <script src="{{ theme_url }}/js/modernizr-3.3.1-custom.min.js" type="text/javascript"></script>
+    <script src="{{ theme_url }}/js/utils.js" type="text/javascript"></script>
+    <script src="{{ theme_url }}/js/pico.js" type="text/javascript"></script>
+
+    
+
+</div>
+
+
+
+
+{# <div id="page-overlay"></div> #}
+
+{# <script>
+	new Splide( '.splide' ).mount();
+</script> #}
+
+{% include 'partials/photoswipe.twig' %}
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+body {
+  text-rendering: optimizeLegibility;
+}
+
+// Vetsi font pro lepsi citelnost clanku
+@include media-breakpoint-up(md) {
+  .font-size-fluid {
+    font-size: $font-size-fluid;
+    line-height: 1.618;
+  }
+}
+
+// Keep base font size in forms and tables
+form,
+table {
+  font-size: $font-size-base;
+}
+
+// Vetsi odsazeni v clanku
+.container--article {
+  h1 + p {
+    margin-top: clamp(2rem, 8vw, 5rem);
+  }
+  p + h2 {
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+  .container--article p > img {
+    margin-top: clamp(.25rem, 1vw, 1rem);
+    margin-bottom: clamp(.25rem, 1vw, 1rem);
+  }
+}

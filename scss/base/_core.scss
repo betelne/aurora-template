@@ -1,0 +1,24 @@
+:root {
+  // promenne pro pouziti ve vlastnich css v adminu
+  --primary: #{$primary}; // zakladni barva
+  --body-color: #{$body-color}; // barva textu
+  --body-bg: #{$body-bg}; // barva pozadi
+  --panel-bg: #{panel-bg}; // pozadi panelu
+}
+
+img {
+  max-width: 100%; // kvuli pretekani
+  height: auto; // kvuli pevnym rozmerum, ktere dava Tiny
+}
+
+#page-wrapper {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px; // fixed header offset
+  @include media-breakpoint-up(lg) {
+    scroll-padding-top: 100px;
+  }
+}
+
+p:empty { // kvuli Tiny (section breaks apod.)
+  margin-bottom: 0;
+}

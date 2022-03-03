@@ -1,0 +1,122 @@
+/* Bootstrap components
+  ====================================================================== */
+
+// Tabs
+.nav-tabs .nav-link:not(.active):hover {
+  border-color: mix($panel-bg, $body-color, 90%) mix($panel-bg, $body-color, 90%) transparent;
+}
+
+.nav-tabs .nav-link.active {
+  color: $body-color;
+}
+
+@include media-breakpoint-down(sm) {
+  .nav-tabs {
+    flex-direction: column;
+    border-bottom: 0;
+    .nav-link {
+      width: 100%;
+      background: $panel-bg;
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+    .nav-link,
+    .nav-link:active,
+    .nav-link:focus,
+    .nav-link:focus:active {
+      border-color: transparent;
+      border-bottom: 1px solid mix($panel-bg, $body-color, 80%);
+    }
+    .nav-link.active,
+    .nav-link:hover,
+    .nav-link:focus {
+      background: $primary;
+      color: $body-bg;
+      border-color: $primary;
+    }
+    .nav-item:first-of-type .nav-link {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+    .nav-item:last-of-type .nav-link {
+      border-bottom-color: transparent;
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+}
+
+
+// @include media-breakpoint-down(sm) {
+//   .product-page__tab-list {
+//     flex-direction: column;
+//     border-bottom: 0;
+//     .product-page__tab-link {
+//       width: 100%;
+//       background: $panel-bg;
+//       border-radius: 0;
+//       margin-bottom: 0;
+//     }
+//     .product-page__tab-link,
+//     .product-page__tab-link:active,
+//     .product-page__tab-link:focus,
+//     .product-page__tab-link:focus:active {
+//       border-color: transparent;
+//       border-bottom: 1px solid mix($panel-bg, $body-color, 80%);
+//     }
+//     .product-page__tab-link.active,
+//     .product-page__tab-link:hover,
+//     .product-page__tab-link:focus {
+//       background: $primary;
+//       color: $body-bg;
+//       border-color: $primary;
+//     }
+//     .product-page__tab-item:first-of-type .product-page__tab-link {
+//       border-top-left-radius: $border-radius;
+//       border-top-right-radius: $border-radius;
+//     }
+//     .product-page__tab-item:last-of-type .product-page__tab-link {
+//       border-bottom-color: transparent;
+//       border-bottom-left-radius: $border-radius;
+//       border-bottom-right-radius: $border-radius;
+//     }
+//   }
+// }
+
+
+// Modal
+.modal-content {
+  background-color: $panel-bg;
+}
+
+.modal-header .btn-close {
+  // color: $body-color;
+  @include recolor($body-color, 1);
+}
+
+.modal-header {
+  // border-bottom-color: mix($panel-bg, $body-color, 75%);
+  border-color: transparent;
+}
+
+.modal-footer {
+  // border-top-color: mix($panel-bg, $body-color, 75%);
+  border-color: transparent;
+}
+
+
+// Checkboxes
+.form-check-input:not(:disabled) {
+  cursor: pointer;
+}
+
+.form-check-input:not(:checked) {
+  border-color: rgba($body-color, .5);
+}
+
+
+// Buttons
+.btn-outline-secondary {
+  color: mix($body-color, $body-bg, 70%);
+  border-color: mix($body-color, $body-bg, 70%);
+}

@@ -1,0 +1,164 @@
+/* User account menu (navbar) / modal
+  ====================================================================== */
+
+.account-menu {
+  @extend .minicart;
+  @include media-breakpoint-up(sm) {
+    min-width: 22em;
+  }
+}
+
+.account-menu__heading {
+  text-align: center;
+  margin-top: .5em;
+  margin-bottom: 1.5em;
+}
+
+.account-menu__input {
+  margin-bottom: 1rem;
+}
+
+.account-menu__login,
+.account-menu__logout {
+  display: block;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.account-menu__lost {
+  text-align: center;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.account-menu__list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.account-menu__link {
+  display: flex;
+  align-items: center;
+  padding: .5em 1.5em;
+  text-decoration: none;
+  color: $body-color;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.account-menu__icon {
+  font-size: 1.25em;
+  padding-right: 1em;
+}
+
+// flash messages
+.account-flash {
+  margin: 1rem 1rem -1rem;
+}
+
+/* Orders list */
+@include media-breakpoint-down(md) {
+  .table-row-to-col thead {
+    display: none;
+  }
+  .table-row-to-col tbody td {
+    display: block;
+    width: 100%;
+  }
+  .table-row-to-col tbody td:before {
+    content: attr(data-th);
+    font-weight: $semi-bold;
+    width: 15rem;
+    text-align: left;
+    float: left;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .table-row-to-col tbody td:before {
+    width: 8rem;
+  }
+}
+
+
+/* Account settings
+  ====================================================================== */
+
+.account-form__items-wrapper {
+  @extend .cart-form__items-wrapper;
+}
+.account-form__item {
+  @extend .cart-form__item;
+}
+.account-form__item-group {
+  @extend .cart-form__item-group;
+}
+.account-form__label {
+  @extend .form-label;
+}
+.account-form__input {
+  @extend .form-control;
+}
+.account-form__select {
+  @extend .form-select;
+}
+.account-form__input-group {
+  @extend .input-group;
+}
+.account-form__item--city {
+  @extend .cart-form__item--city;
+}
+.account-form__item--zip {
+  @extend .cart-form__item--zip;
+}
+.account-form__title {
+  @extend .cart-form__title;
+  font-size: 1.25rem;
+  width: 100%;
+}
+
+@include media-breakpoint-up(md) {
+  .account-form__fieldset {
+    max-width: $line-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.account-button {
+  @extend .btn;
+  @extend .btn-primary;
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.account-form__title-link,
+.account-form__title-link:hover,
+.account-form__title-link:focus {
+  text-decoration: none;
+  color: $body-color;
+}
+
+.account-form__title-link {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid mix($panel-bg, $body-color, 75%);
+  // background-color: $panel-bg;
+  border-radius: .25rem;
+  padding: .75rem 1rem;
+}
+
+.account-form__title-link.active .account-form__caret {
+  transform: rotate(180deg);
+}
+
+.account-form__caret {
+  margin-left: .25em;
+  transition: .3s;
+}
+

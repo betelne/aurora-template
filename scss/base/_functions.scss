@@ -1,0 +1,18 @@
+@function text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $gray-900;
+  } @else {
+    @return $white;
+  }
+}
+
+// endcoding colors (e.g. #fff -> %23fff)
+// does not work with colors containing alpha
+@function encodecolor($string) {
+	@if type-of($string) == 'color' {
+        $hex: str-slice(ie-hex-str($string), 4);
+        $string:unquote("#{$hex}");
+    }
+    $string: '%23' + $string;
+	@return $string;
+}

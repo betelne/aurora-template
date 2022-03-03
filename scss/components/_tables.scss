@@ -1,0 +1,59 @@
+/* Tabulky
+  ====================================================================== */
+
+.table-overflow tr:first-of-type,
+.table-collapse td:first-of-type {
+  font-weight: $semi-bold !important;
+}
+
+@include media-breakpoint-down(md) {
+  .table-collapse {
+    thead {
+      display: none;
+    }
+    tbody {
+      border-top: none !important;
+    }
+    td {
+      border: none;
+      padding: 0 .5rem;
+    }
+    td:first-child {
+      padding-top: 1rem;
+      padding-bottom: .5rem;
+    }
+    td:last-child {
+      padding-bottom: 1rem;
+    }
+    td[data-th]::before {
+      content: attr(data-th) ": ";
+      display: inline-block;
+      min-width: 7rem;
+      opacity: .75;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .table > :not(:first-child) {
+    border-color: mix($body-color, $body-bg, 25%); // BS override
+  }
+  .table td {
+    border-color: mix($body-color, $body-bg, 15%);
+  }
+  thead th {
+    font-weight: $semi-bold;
+  }
+}
+
+
+/* Soubory ke stazeni
+  ====================================================================== */
+
+.table-files__file-icon {
+  position: relative;
+  font-size: 1.5rem;
+  top: .1em;
+  margin-right: .25em;
+  opacity: .9;
+}

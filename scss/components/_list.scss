@@ -1,0 +1,415 @@
+/* List articles
+  ====================================================================== */
+
+.article-item-wrapper {
+  @extend .col-sm-6;
+  @extend .col-lg-4;
+  // @extend .col-xxl-3;
+  margin-bottom: 1.5rem;
+}
+
+// .article-item {
+//   padding: 1rem;
+// }
+
+.article-item__thumbnail {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+// Pevny pomer stran obrazku clanku
+.article-item__img-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(100% * 2 / 3); // nastaveni pomeru stran
+  margin: auto;
+  border: none;
+  background-color: $panel-bg;
+  border-radius: 0;
+}
+
+.article-item__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .2s;
+}
+
+.article-item__icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 7rem; // fallback
+  font-size: clamp(6rem, 8vw, 7rem);
+  color: $primary;
+}
+
+.article-item__title {
+  @extend %item-title;
+  line-height: 1.3;
+}
+
+// Titulek článku
+.article-item__title-link {
+  text-decoration: none;
+}
+
+// Odkaz na rubriku
+.article-item__section-link {
+  text-decoration: none;
+}
+
+// Perex
+.article-item__perex {
+  // display: -webkit-box;
+  // -webkit-line-clamp: 4; // omezení počtu řádků
+  // -webkit-box-orient: vertical;  
+  // overflow: hidden;
+  margin-top: 1em;
+}
+
+
+// Rows layout
+// @include media-breakpoint-up(md) {
+//   .article-item-wrapper {
+//     width: 100%;
+//   }
+
+//   .article-item {
+//     display: grid;
+//     grid-template-rows: auto auto 1fr;
+//     grid-template-columns: auto 1fr;
+//     grid-template-areas:
+//       "thumbnail title"
+//       "thumbnail details"
+//       "thumbnail perex";
+//     margin-bottom: 1rem;
+//   }
+
+//   .article-item__thumbnail { grid-area: thumbnail; }
+//   .article-item__title     { grid-area: title; }
+//   .article-item__details   { grid-area: details; }
+//   .article-item__perex     { grid-area: perex; }
+
+//   .article-item__thumbnail {
+//     width: 18rem;
+//     margin-right: 2rem;
+//     margin-bottom: 0;
+//   }
+// }
+
+
+/* List articles - aktivni rubrika
+  ====================================================================== */
+
+.active-category__title {
+  text-align: center;
+  max-width: $line-width;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}
+
+
+/* List categories
+  ====================================================================== */
+
+  // .categories           { @extend .product-list; }
+  // .category-wrapper     { @extend .product-item-wrapper; }
+  // .category__title      { @extend .product-item__title; }
+  // .category__title-link { @extend .product-item__title-link; }
+
+  .categories {
+    margin-bottom: 1rem;
+  }
+
+  .category-wrapper {
+    // @extend .article-item-wrapper;
+    @extend .col-sm-6;
+    @extend .col-lg-4;
+    // @extend .col-xl-3;
+    margin-bottom: $grid-gutter-width / 2;
+  }
+  
+  .category {
+    // @extend .article-item;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    // display: grid;
+    // grid-template-rows: repeat(auto-fit, minmax(1em, 1fr));
+    // grid-template-columns: 1fr 1fr;
+    // grid-template-areas:
+    //   "thumbnail title"
+    //   "thumbnail details";
+    // align-items: center;
+    // background-color: $light-bg;
+    background-color: $panel-bg;
+    border: $light-mode-only-border;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 3px 5px -5px rgba(0, 0, 0, .45);
+    transition: .2s;
+    &:hover {
+      border-color: mix($body-color, $body-bg, 50%);
+      box-shadow: 0 8px 16px -11px rgba(0, 0, 0, .15);
+    }
+  }
+
+  // .category__thumbnail { grid-area: thumbnail; }
+  // .category__title { grid-area: title; }
+  // .category__details { grid-area: details; }
+
+  .category__thumbnail {
+    @extend .article-item__thumbnail;
+    display: block;
+    // min-width: 50%;
+    min-width: 35%;
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+
+  .category__img-wrapper {
+    @extend .article-item__img-wrapper;
+    padding-bottom: 100%; // pomer stran obrazku ctverec
+    background-color: $body-bg;
+  }
+
+  .category__img {
+    @extend .article-item__img;
+  }
+
+  // .category__icon-wrapper {
+  //   @extend .article-item__icon-wrapper;
+  // }
+
+  .category__icon {
+    @extend .article-item__icon;
+    font-size: clamp(2rem, calc(.5rem + 12vw), 6rem);
+      @include media-breakpoint-up(sm) {
+        font-size: clamp(2.5rem, calc(.25rem + 4vw), 3rem);
+      }
+  }
+
+  .category__title {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin-bottom: 0;
+  }
+
+  .category__title-link {
+    @extend .article-item__title-link;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  // .category__perex {
+  //   @extend .article-item__perex;
+  // }
+
+  .categories--root {
+    // .category-wrapper {
+      // @extend .article-item-wrapper;
+      // @extend .col-sm-6;
+      // @extend .col-md-4;
+      // @extend .col-xxl-3;
+      // margin-bottom: $grid-gutter-width / 2;
+    // }
+    .category {
+      display: flex;
+      flex-direction: column;
+      align-items: initial;
+      padding: 1rem;
+
+      // grid-template-areas:
+      //   "thumbnail"
+      //   "title"
+      //   "details";
+      // grid-template-rows: auto;
+      // grid-template-columns: 1fr;
+    }
+    .category__title {
+      text-align: center;
+      margin-top: .5em;
+    }
+    .category__thumbnail {
+      margin-bottom: .25rem;
+      margin-right: 0;
+    }
+    .category__icon {
+      font-size: clamp(5rem, calc(3rem + 12vw), 7rem);
+      @include media-breakpoint-up(sm) {
+        font-size: clamp(4.5rem, calc(1rem + 5vw), 7rem);
+      }
+    }
+  }
+
+  .category__details {
+    display: flex;
+    flex-direction: column;
+    font-size: .875rem;
+    opacity: .75;
+    margin-top: .5rem;
+  }
+  
+  .categories--root {
+    .category__details {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+
+/* List search results
+  ====================================================================== */
+
+// Comment
+.comment-item-wrapper {
+  @extend .article-item-wrapper;
+}
+
+.comment-item {
+  // @extend .article-item;
+  border-radius: $border-radius;
+}
+
+.comment-item .comment {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: '';
+    background-color: $panel-bg;
+    left: 2rem;
+    bottom: -.5rem;
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(45deg);
+    box-shadow: 1px 1px 3px -2px rgba(0, 0, 0, .5);
+  }
+}
+
+.comment-item__details .article-item__title {
+  font-size: 1.25rem;
+  line-height: 1.3
+}
+
+// File
+.file-item-wrapper {
+  @extend .article-item-wrapper;
+  // @extend .col-sm-6;
+  // @extend .col-xl-4;
+  // @extend .col-xxl-3;
+  // padding: 1rem 1.75rem;
+}
+
+// .file-item__icon-wrapper {
+//   background-color: $panel-bg;
+// }
+
+.file-item {
+  background-color: $panel-bg;
+  border-radius: $border-radius;
+  padding: 1rem;
+}
+
+.file-item__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.file-item__icon {
+  font-size: 1.5rem;
+}
+
+.file-item__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-left: .5rem;
+  margin-bottom: 0;
+}
+
+.file-item__label {
+  position: relative;
+  display: inline-block;
+  min-width: 7em;
+  opacity: .75;
+  &::after {
+    content: ':';
+  }
+}
+
+// Files - toggle view
+.files-toggler {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.files-toggler__value:not(:last-child):after {
+  content: " |";
+  opacity: .5;
+}
+
+.files-toggler__label {
+  display: none;
+}
+
+
+/* Details (informace o poctu clanku, komentaru, produktu atd.)
+  ====================================================================== */
+
+// Popisky "Rubrika", "Komentáře", "Článků", "Fotografií", "Produktů"
+.details__label {
+  &::after {
+    content: ':';
+  }
+}
+
+.article-item__details > *,
+.category__details > *,
+.comment__details > * {
+  margin-left: .625rem;
+  white-space: nowrap;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.article-item__details,
+.comment__details {
+  text-transform: uppercase;
+  font-size: .8125rem;
+  letter-spacing: .0375em;
+}
+
+.categories:not(.categories--root) .category__details > * {
+  margin-left: 0;
+}
+
+.details__section,
+.details__comments,
+.details__photos {
+  .details__label {
+    display: none;
+  }
+}
+
+.details__items,
+.details__galleries,
+.details__products {
+  .details__icon {
+    display: none;
+  }
+}

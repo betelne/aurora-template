@@ -1,0 +1,69 @@
+/* Rubrika - perex
+  ====================================================================== */
+
+.perex,
+.section-perex {
+  max-width: $line-width;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.perex__image-wrapper,
+.section-perex__image-wrapper {
+  width: 6rem;
+  height: 6rem;
+  margin-left: auto;
+  margin-right: auto;
+  @include media-breakpoint-up(sm) {
+    flex-shrink: 0;
+  }
+}
+
+.perex__image,
+.section-perex__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.perex__text-wrapper,
+.section-perex__text-wrapper {
+  @include media-breakpoint-up(sm) {
+    text-align: center;
+  }
+}
+
+.perex__text,
+.section-perex__text {
+  margin-bottom: 0;
+}
+
+.section--header ~ .perex,
+.section--header ~ .section-perex {
+  margin-top: -2rem;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.section--header ~ .perex:empty,
+.section--header ~ .section-perex:empty {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.perex__image-wrapper ~ .perex__text-wrapper,
+.section-perex__image-wrapper ~ .section-perex__text-wrapper {
+  margin-top: 1rem;
+  @include media-breakpoint-up(sm) {
+    text-align: left;
+    margin-top: 0;
+    margin-left: 2rem;
+  }
+}
