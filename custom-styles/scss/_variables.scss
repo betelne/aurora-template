@@ -1,0 +1,50 @@
+// Colors
+// Light mode colors - vybrat jako zaklad svetlou verzi v adminu
+$primary: #074eb3;
+$primary-rgb: 7, 78, 179;
+$body-color: #212529;
+$body-bg: #fff;
+$panel-bg: #f8f9fa;
+
+// Dark mode colors - vybrat jako zaklad tmavou verzi v adminu
+// $primary: #fff;
+// $primary-rgb: 255, 255, 255;
+// $body-color: #dcdde0;
+// $text-muted: #919aa1;
+// $body-bg: #1e2124;
+// $panel-bg: #2e3338;
+
+:root {
+  --primary: #{$primary};
+  --primary-rgb: #{$primary-rgb};
+  --bs-primary: #{$primary};
+  --bs-primary-rgb: #{$primary-rgb};
+}
+
+// Narrow blocks
+$line-width: 50rem; // default
+
+// Spacing
+$container-padding-x: .75rem !default;
+
+// Misc
+$border-radius: .25rem !default;
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+) !default;

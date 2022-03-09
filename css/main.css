@@ -12601,13 +12601,6 @@ fieldset:disabled .cookies__button {
   font-size: clamp(1.25rem, calc(.5rem + 1.5vw), 1.5rem);
 }
 
-:root {
-  --primary: #074eb3;
-  --body-color: #212529;
-  --body-bg: #fff;
-  --panel-bg: panel-bg;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -17313,7 +17306,10 @@ body.frontend .dynamic-loader::after {
   font-size: 1.375rem;
   font-weight: 600;
   line-height: 1;
-  margin-right: .5rem;
+}
+
+.product-item__price-vat-info {
+  margin-left: .5rem;
 }
 
 .product-item__cart-button {

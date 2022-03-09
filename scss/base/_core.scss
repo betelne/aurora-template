@@ -1,11 +1,3 @@
-:root {
-  // promenne pro pouziti ve vlastnich css v adminu
-  --primary: #{$primary}; // zakladni barva
-  --body-color: #{$body-color}; // barva textu
-  --body-bg: #{$body-bg}; // barva pozadi
-  --panel-bg: #{panel-bg}; // pozadi panelu
-}
-
 img {
   max-width: 100%; // kvuli pretekani
   height: auto; // kvuli pevnym rozmerum, ktere dava Tiny
