@@ -3,7 +3,8 @@ img {
   height: auto; // kvuli pevnym rozmerum, ktere dava Tiny
 }
 
-#page-wrapper {
+// #page-wrapper,
+body {
   scroll-behavior: smooth;
   scroll-padding-top: 85px; // fixed header offset
   @include media-breakpoint-up(lg) {

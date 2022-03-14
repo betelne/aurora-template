@@ -3,7 +3,9 @@
   width: 100vw;
   height: 35rem;
   max-height: 100vh;
-  transform-style: preserve-3d;
+  overflow: hidden;
+  margin-top: 64px; // header height, dynamic calculation in js
+  transition: margin .2s;
   // &::before {
   //   position: absolute;
   //   content: '';
@@ -63,15 +65,6 @@
 /* Parallax
   ====================================================================== */
 
-#page-wrapper { // Parallax container
-  height: 100vh;
-  perspective: 1px;
-  perspective-origin: center top;
-  transform-style: preserve-3d;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 .motive__background {
   position: absolute;
   top: 0;
@@ -87,9 +80,6 @@
   background-size: cover;
   transition: transform-origin .2s, opacity .2s .2s;
   .motive.parallax & {
-    transform: translateZ(-1px) scale(2);
-    transform-origin: center top;
-    // transition: .2s;
     opacity: 0; // opacity 1 in js
   }
 }
@@ -102,7 +92,6 @@
 
 #main {
   position: relative;
-  transform: translateZ(0);
   background-color: $body-bg;
   z-index: 2;
 }
@@ -121,8 +110,6 @@
   text-align: center;
   z-index: 1;
   .motive.parallax & {
-    transform: translateZ(-.9px) scale(1.9);
-    transform-origin: center -120px;
     opacity: 0; // opacity 1 in js
     transition: opacity .2s .2s;
   }

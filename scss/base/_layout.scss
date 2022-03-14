@@ -1,5 +1,5 @@
 // Keep footer at bottom
-#page-wrapper {
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -17,6 +17,10 @@
 // Avoid overflowing
 html, body {
   overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto;
 }
 
 // Page overlay ?

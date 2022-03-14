@@ -735,10 +735,10 @@ body.frontend .dynamic-loader::after {
 }
 
 
-/* Fix editoru
+/* Fix editoru - styly jen pro editacni mod
   ====================================================================== */
 
-#tinymce {
+body:not(.frontend) {
   section.section-container .section-cell-item:hover {
     background-color: mix($panel-bg, $body-color, 95%);
   }

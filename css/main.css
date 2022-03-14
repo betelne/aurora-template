@@ -12606,13 +12606,13 @@ img {
   height: auto;
 }
 
-#page-wrapper {
+body {
   scroll-behavior: smooth;
   scroll-padding-top: 85px;
 }
 
 @media (min-width: 992px) {
-  #page-wrapper {
+  body {
     scroll-padding-top: 100px;
   }
 }
@@ -12621,7 +12621,7 @@ p:empty {
   margin-bottom: 0;
 }
 
-#page-wrapper {
+body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12646,6 +12646,10 @@ p:empty {
 
 html, body {
   overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto;
 }
 
 #page-overlay {
@@ -12705,12 +12709,10 @@ table {
 }
 
 .header {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   background-color: #fff;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
   z-index: 100;
 }
 
@@ -13373,8 +13375,10 @@ button.navbar__menu-link:hover {
   width: 100vw;
   height: 35rem;
   max-height: 100vh;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  overflow: hidden;
+  margin-top: 64px;
+  -webkit-transition: margin .2s;
+  transition: margin .2s;
 }
 
 /* Vlastni motiv */
@@ -13425,18 +13429,6 @@ button.navbar__menu-link:hover {
 
 /* Parallax
   ====================================================================== */
-#page-wrapper {
-  height: 100vh;
-  -webkit-perspective: 1px;
-          perspective: 1px;
-  -webkit-perspective-origin: center top;
-          perspective-origin: center top;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 .motive__background {
   position: absolute;
   top: 0;
@@ -13456,17 +13448,11 @@ button.navbar__menu-link:hover {
 }
 
 .motive.parallax .motive__background {
-  -webkit-transform: translateZ(-1px) scale(2);
-          transform: translateZ(-1px) scale(2);
-  -webkit-transform-origin: center top;
-          transform-origin: center top;
   opacity: 0;
 }
 
 #main {
   position: relative;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
   background-color: #fff;
   z-index: 2;
 }
@@ -13491,10 +13477,6 @@ button.navbar__menu-link:hover {
 }
 
 .motive.parallax .motive__motto {
-  -webkit-transform: translateZ(-0.9px) scale(1.9);
-          transform: translateZ(-0.9px) scale(1.9);
-  -webkit-transform-origin: center -120px;
-          transform-origin: center -120px;
   opacity: 0;
   -webkit-transition: opacity .2s .2s;
   transition: opacity .2s .2s;

@@ -267,14 +267,13 @@ $(document).ready(function() {
   });
 
 
-/* Fullscreen motive & parallax - calculate correct height
+/* Fullscreen motive (height calculation), Parallax effect animation
   ====================================================================== */
 
   function motiveHeight() {
     var headerHeight = $("#header").height();
     $("#motive.fullscreen").css("height", "calc(100vh - " + headerHeight + "px)");
-    $("#motive.parallax .motive__background").css("transform-origin", "center -" + headerHeight + "px");
-    $("#motive.parallax .motive__motto").css("transform-origin", "center -" + headerHeight + "px");
+    $("#motive").css("margin-top", headerHeight + "px");
   }
 
   function fadeInMotive() {
@@ -285,6 +284,12 @@ $(document).ready(function() {
   motiveHeight();
   fadeInMotive();
   $(window).resize(motiveHeight);
+
+  $(window).scroll(function() {
+    var scrollTop = $(window).scrollTop();
+    $(".motive__background", "#motive.parallax").css('transform', 'translate3d(0px, ' + (scrollTop / 1.5) + 'px, 0px)');
+    $(".motive__motto", "#motive.parallax").css('transform', 'translate3d(0px, ' + (scrollTop / 2) + 'px, 0px)');
+  });
 
 
 /* Comment section

@@ -1,3 +1,6 @@
+  /* !!! Zastarale, #page-wrapper uz se nepouziva !!! */
+  
+  
   $(document).ready(function() {
     demoBannerToggle();
   });
@@ -35,5 +38,5 @@
         $($demoBanner).addClass("active");
       }
     });
-  } 
+  }
 
