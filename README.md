@@ -69,6 +69,8 @@ Otestován Chrome, Firefox, Safari (na Macu).
 
 **IE** – je mrtvý. Šablona upřednostňuje výhody a flexibilitu současného kódu nad podporou IE (`flex` a `grid` layout atd). Kdo nutně potřebuje zachovat podporu IE, nechť zůstane u starších šablon.
 
+**Safari** - nefunguje svg filter (mixin `recolor`), tudíž je potřeba vždy podle požadované základní barvy vytvořit klasický filtr (např. https://isotropic.co/tool/hex-color-to-css-filter/). Týká se to třídy `.filter-default` a obecně elementů, kde se přebarvují rastrové obrázky (ikony) na základní barvu šablony. Zkoušeno na verzi Safari 15.1.
+
 &nbsp;
 
 ## Doporučení k úpravám <a id="edit"></a>

@@ -40,7 +40,7 @@
   $lightness: lightness($color);
   filter: saturate(0%) brightness(0%) invert($lightness) opacity($opacity);
 
-  // color filter
+  // color filter - nefunguje v Safari (v. 15.1) !!!
   $svg-filter-id: "recolor";
   filter: url('data:image/svg+xml;utf8,\
   <svg xmlns="http://www.w3.org/2000/svg">\
