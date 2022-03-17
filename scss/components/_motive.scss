@@ -18,9 +18,9 @@
   // }
 }
 
-// .motive:not(.fullscreen) {
-//   max-height: 60%;
-// }
+.motive.fullscreen {
+  height: 100vh; // dynamic calculation in js
+}
 
 /* Vlastni motiv */
 .custom-motive {
@@ -78,10 +78,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  opacity: 0; // opacity 1 in js
   transition: transform-origin .2s, opacity .2s .2s;
-  .motive.parallax & {
-    opacity: 0; // opacity 1 in js
-  }
 }
 
 // .motive.parallax .splide {
@@ -109,10 +107,8 @@
   justify-content: center;
   text-align: center;
   z-index: 1;
-  .motive.parallax & {
-    opacity: 0; // opacity 1 in js
-    transition: opacity .2s .2s;
-  }
+  opacity: 0; // opacity 1 in js
+  transition: opacity .2s .2s;
 }
 
 .motive__motto--left {

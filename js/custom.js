@@ -277,8 +277,8 @@ $(document).ready(function() {
   }
 
   function fadeInMotive() {
-    $(".motive__background", "#motive").css("opacity", "1"); // fade in motivu po fixnuti transform-origin
-    $(".motive__motto", "#motive").css("opacity", "1"); // fade in motta po fixnuti transform-origin
+    $(".motive__background", "#motive").css("opacity", "1"); // fade in motivu po fixnuti pozice (margin-top)
+    $(".motive__motto", "#motive").css("opacity", "1"); // fade in motta po fixnuti pozice (margin-top)
   }
 
   motiveHeight();
