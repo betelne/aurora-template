@@ -28,12 +28,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(.9) saturate(.8);
   transition: .4s;
   &:hover {
-    filter: brightness(1.15);
+    filter: brightness(1) saturate(1);
     transition: .2s;
   }
 }
+
+// .gallery-detail .gallery.photoswipe,
+// .gallery-detail .gallery.photoswipe ~ .pagination {
+//   padding-bottom: 4rem;
+// }
 
 
 /* Image detail
