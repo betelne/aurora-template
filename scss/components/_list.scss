@@ -274,6 +274,12 @@
 /* List search results
   ====================================================================== */
 
+// Layout fix
+#search-tab-content {
+  margin-left: -$container-padding-x;
+  margin-right: -$container-padding-x;
+}
+
 // Comment
 .comment-item-wrapper {
   @extend .article-item-wrapper;

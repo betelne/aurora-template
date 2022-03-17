@@ -35,6 +35,7 @@
 }
 
 .navbar__brand-logo-img {
+  image-rendering: -webkit-optimize-contrast; // Ostrejsi vykreslovani v Chrome a Safari
   max-width: 6rem;
   max-height: 2.5rem;
   @include media-breakpoint-up(sm) {

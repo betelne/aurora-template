@@ -263,13 +263,15 @@ $eshop-layout: 2; // Volba layoutu
   }
 
   .product-item-wrapper,
-  .container--eshop .category-wrapper {
+  .container--eshop .category-wrapper,
+  .container--eshop .product-item-wrapper {
     @extend .col-sm-6;
     @extend .col-xl-4;
     margin-bottom: $grid-gutter-width / 2;
   }
 
   .product-list--grid .product-item-wrapper,
+  .container--eshop .product-item-wrapper,
   .container--eshop .category-wrapper {
     // Rozumna sirka nezavisle na tom, jestli je 
     // zobrazene eshop menu nebo ne, proto tato specificka cisla
