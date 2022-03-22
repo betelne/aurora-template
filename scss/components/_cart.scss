@@ -30,6 +30,10 @@
   }
 }
 
+.cart-modal__info-col .price-original-vat {
+  @extend .product-item__price-old;
+}
+
 
 /* Cart - global
   ====================================================================== */

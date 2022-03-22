@@ -30,58 +30,23 @@
     .nav-link.active,
     .nav-link:hover,
     .nav-link:focus {
-      background: $primary;
-      color: $body-bg;
-      border-color: $primary;
+      background: transparent;
+      color: $body-color;
+      border-color: mix($panel-bg, $body-color, 80%);
     }
     .nav-item:first-of-type .nav-link {
       border-top-left-radius: $border-radius;
       border-top-right-radius: $border-radius;
     }
     .nav-item:last-of-type .nav-link {
-      border-bottom-color: transparent;
       border-bottom-left-radius: $border-radius;
       border-bottom-right-radius: $border-radius;
     }
+    .nav-item:last-of-type .nav-link:not(.active) {
+      border-bottom-color: transparent;
+    } 
   }
 }
-
-
-// @include media-breakpoint-down(sm) {
-//   .product-page__tab-list {
-//     flex-direction: column;
-//     border-bottom: 0;
-//     .product-page__tab-link {
-//       width: 100%;
-//       background: $panel-bg;
-//       border-radius: 0;
-//       margin-bottom: 0;
-//     }
-//     .product-page__tab-link,
-//     .product-page__tab-link:active,
-//     .product-page__tab-link:focus,
-//     .product-page__tab-link:focus:active {
-//       border-color: transparent;
-//       border-bottom: 1px solid mix($panel-bg, $body-color, 80%);
-//     }
-//     .product-page__tab-link.active,
-//     .product-page__tab-link:hover,
-//     .product-page__tab-link:focus {
-//       background: $primary;
-//       color: $body-bg;
-//       border-color: $primary;
-//     }
-//     .product-page__tab-item:first-of-type .product-page__tab-link {
-//       border-top-left-radius: $border-radius;
-//       border-top-right-radius: $border-radius;
-//     }
-//     .product-page__tab-item:last-of-type .product-page__tab-link {
-//       border-bottom-color: transparent;
-//       border-bottom-left-radius: $border-radius;
-//       border-bottom-right-radius: $border-radius;
-//     }
-//   }
-// }
 
 
 // Modal

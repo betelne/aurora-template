@@ -4,8 +4,7 @@
   height: 35rem;
   max-height: 100vh;
   overflow: hidden;
-  margin-top: 64px; // header height, dynamic calculation in js
-  transition: margin .2s;
+  transition: height .2s;
   // &::before {
   //   position: absolute;
   //   content: '';
