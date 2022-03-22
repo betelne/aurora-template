@@ -273,12 +273,11 @@ $(document).ready(function() {
   function motiveHeight() {
     var headerHeight = $("#header").height();
     $("#motive.fullscreen").css("height", "calc(100vh - " + headerHeight + "px)");
-    $("#motive").css("margin-top", headerHeight + "px");
   }
 
   function fadeInMotive() {
-    $(".motive__background", "#motive").css("opacity", "1"); // fade in motivu po fixnuti pozice (margin-top)
-    $(".motive__motto", "#motive").css("opacity", "1"); // fade in motta po fixnuti pozice (margin-top)
+    $(".motive__background", "#motive").css("opacity", "1"); // fade in motivu
+    $(".motive__motto", "#motive").css("opacity", "1"); // fade in motta
   }
 
   motiveHeight();
