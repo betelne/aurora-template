@@ -74,8 +74,8 @@ Otestován Chrome, Firefox, Safari (na Macu).
 &nbsp;
 
 ## Doporučení k úpravám <a id="edit"></a>
-### Proměnné
-Pokud je to možné, je zpravidla lepší využívat předefinování BS proměnných v souboru `scss/base/variables` než psát nové styly (nepíše se zbytečný kód navíc a často to funguje i lépe). To se týká hlavně globálních úprav. Obecně ke stylování, pokud stejnou hodnotu opakuji v kódu na dvou a více místech, je zpravidla vhodné na to použít proměnnou (ať už vlastní, BS, nebo předefinovanou BS).
+### Vlastní css
+Pro účel tvoření profesních šablon a balíčků na míru – nepřepisovat originální soubory šablony, ale pracovat s tím, co je ve složce `custom-styles`.
 
 ### Jednotky
 Pokud je to vhodné (což většinou je), tak používat relativní jednotky – `rem`, `em`, atd. Např. pokud má být parametr závislý na velikosti daného elementu, použít `em` (např. odsazení nadpisu nebo velikost ikony vůči textu), pokud má být závislý na velikosti root elementu, použít `rem` (např. jednotné odsazení), pokud má být vždy konstantní, použít `px` (např. šířka rámečku). S `em` jednotkami se občas i ušetří nějaké ty media queries. Super užitečná je funkce `clamp(min-value, relative-value, max-value)`, s tou se také často dají ušetřit media queries, např. `font-size: clamp(1rem, 5vw, 4rem)`.
